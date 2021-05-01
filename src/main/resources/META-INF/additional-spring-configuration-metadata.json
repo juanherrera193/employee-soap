@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "flyway.user",
+      "type": "java.lang.String",
+      "description": "Description for flyway.user."
+  }
+] }

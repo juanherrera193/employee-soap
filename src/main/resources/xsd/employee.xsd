@@ -1,0 +1,73 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.parameta.co/xml/employee"
+           targetNamespace="http://www.parameta.co/xml/employee"
+           elementFormDefault="qualified">
+
+    <xs:element name="getEmployeeByDocumentRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="documentType" type="xs:string"/>
+                <xs:element name="documentNumber" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getEmployeeByDocumentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="employee" type="tns:employeeResponse"/>
+                <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="saveEmployeeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Employee" type="tns:employeeRequest"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="saveEmployeeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="employeeRequest">
+        <xs:sequence>
+            <xs:element name="names" type="xs:string"/>
+            <xs:element name="surname" type="xs:string"/>
+            <xs:element name="documentType" type="xs:string"/>
+            <xs:element name="documentNumber" type="xs:string"/>
+            <xs:element name="dateOfBirth" type="xs:date"/>
+            <xs:element name="dateOfJoiningCompany" type="xs:date"/>
+            <xs:element name="position" type="xs:string"/>
+            <xs:element name="salary" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="employeeResponse">
+        <xs:sequence>
+            <xs:element name="names" type="xs:string"/>
+            <xs:element name="surname" type="xs:string"/>
+            <xs:element name="documentType" type="xs:string"/>
+            <xs:element name="documentNumber" type="xs:string"/>
+            <xs:element name="dateOfBirth" type="xs:date"/>
+            <xs:element name="dateOfJoiningCompany" type="xs:date"/>
+            <xs:element name="position" type="xs:string"/>
+            <xs:element name="salary" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="serviceStatus">
+        <xs:sequence>
+            <xs:element name="statusCode" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
